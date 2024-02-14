@@ -13,7 +13,7 @@
 | last_name          | string  | null: false               |
 | first_name_kana    | string  | null: false               |
 | last_name_kana     | string  | null: false               |
-| birthday           | integer | null: false               |
+| birthday           | date    | null: false               |
 
 
 ### Association
@@ -23,22 +23,22 @@
 
 ## items テーブル
 
-| Column            | Type       | Options                  |
-| ----------------- | ---------- | ------------------------ |
-| item              | string     | null: false              |
-| description       | text       | null: false              |
-| category          | string     | null: false              |
-| quality           | string     | null: false              |
-| delivery_cost     | string     | null: false              |
-| from              | string     | null: false              |
-| shipping_duration | string     | null: false              |
-| price             | integer    | null: false              |
-| user              | references | false, foreign_key: true |
+| Column               | Type       | Options                        |
+| -------------------- | ---------- | ------------------------------ |
+| name                 | string     | null: false                    |
+| description          | text       | null: false                    |
+| category_id          | integer    | null: false                    |
+| quality_id           | integer    | null: false                    |
+| delivery_cost_id     | integer    | null: false                    |
+| prefecture_id        | integer    | null: false                    |
+| shipping_duration_id | integer    | null: false                    |
+| price                | integer    | null: false                    |
+| user                 | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_one :purchases
-- belongs_to :users
+- has_one :purchase
+- belongs_to :user
 
 ## purchases テーブル
 
@@ -49,22 +49,22 @@
 
 ### Association
 
-- belongs_to :users
-- belongs_to :items
-- has_one :customers
+- belongs_to :user
+- belongs_to :item
+- has_one :customer
 
 ## customers テーブル
 
-| Column         | Type       | Options                        |
-| ---------------| ---------- | ------------------------------ |
-| post_code      | string     | null: false                    |
-| prefecture     | string     | null: false                    |
-| city           | string     | null: false                    |
-| street_address | string     | null: false                    |
-| building_name  | string     | null: false                    |
-| phone_number   | string     | null: false                    |
-| purchase       | references | null: false, foreign_key: true |
+| Column           | Type       | Options                        |
+| -----------------| ---------- | ------------------------------ |
+| post_code        | string     | null: false                    |
+| prefecture_id    | integer    | null: false                    |
+| city             | string     | null: false                    |
+| street_address   | string     | null: false                    |
+| building_name    | string     |                                |
+| phone_number     | string     | null: false                    |
+| purchase         | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :purchases
+- belongs_to :purchase
