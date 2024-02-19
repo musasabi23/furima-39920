@@ -3,6 +3,7 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   belongs_to :quality
+  belongs_to :delivery_cost
 
 
   with_options presence: true do
@@ -12,7 +13,8 @@ class Item < ApplicationRecord
 
     validates :genre_id, numericality: { other_than: 1 , message: "can't be blank"}
     validates :quality_id, numericality: { other_than: 1 , message: "can't be blank"}
-    
+    validates :delivery_cost, numericality: { other_than: 1 , message: "can't be blank"}
+
   end
 
 
