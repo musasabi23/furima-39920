@@ -10,9 +10,9 @@ class Item < ApplicationRecord
 
   with_options presence: true do
     validates :image
-    validates :name
-    validates :description
-    validates :price
+    validates :name, length: { maximum: 40 }
+    validates :description, length: { maximum: 1000 }
+    validates :price, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
 
     validates :category_id, numericality: { other_than: 0 , message: "can't be blank"}
     validates :quality_id, numericality: { other_than: 0 , message: "can't be blank"}
