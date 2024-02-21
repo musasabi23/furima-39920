@@ -9,12 +9,10 @@ class Item < ApplicationRecord
   belongs_to :shipping_duration
 
   with_options presence: true do
-    validates :user_id
     validates :image
     validates :name, length: { maximum: 40 }
     validates :description, length: { maximum: 1000 }
-    validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 },
-                      format: { with: /\A\d+\z/ }
+    validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
   end
 
   validates :category_id, numericality: { other_than: 0, message: "can't be blank" }
