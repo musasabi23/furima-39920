@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :items
+
   with_options presence: true do
     validates :nickname
     validates :birthday
@@ -14,5 +16,6 @@ class User < ApplicationRecord
     validates :first_name_kana, format: { with: /\A[ァ-ヶー]+\z/, message: 'is invalid. Input full-width katakana characters' }
     validates :last_name_kana, format: { with: /\A[ァ-ヶー]+\z/, message: 'is invalid. Input full-width katakana characters' }
   end
-  validates :password,format: { with: /\A(?=.*[a-zA-Z])(?=.*\d)[ -~]{6,}\z/, message: 'is invalid. Include both letters and numbers' }
+  validates :password,
+            format: { with: /\A(?=.*[a-zA-Z])(?=.*\d)[ -~]{6,}\z/, message: 'is invalid. Include both letters and numbers' }
 end

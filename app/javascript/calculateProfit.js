@@ -1,4 +1,6 @@
-window.addEventListener('load', function(){
+function profitAndLoss() {
+
+//window.addEventListener('load', function(){
 
   const price = document.getElementById("item-price")
 
@@ -20,4 +22,7 @@ window.addEventListener('load', function(){
 
   })
 
-});
+//});
+}
+
+window.addEventListener('turbo:load', profitAndLoss);
