@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
+    @delivery_cost = DeliveryCost.all
   end
 
   def new
