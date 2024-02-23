@@ -1,8 +1,9 @@
 class PurchaseCustomer
   include ActiveModel::Model
-  attr_accessor :post_code, :prefecture_id, :city, :street_address, :building_name, :phone_number, :item_id, :user_id
+  attr_accessor :post_code, :prefecture_id, :city, :street_address, :building_name, :phone_number, :item_id, :user_id, :token
 
   with_options presence: true do
+    validates :token
     validates :user_id
     validates :item_id
     validates :post_code, format: { with: /\A\d{3}-\d{4}\z/ }

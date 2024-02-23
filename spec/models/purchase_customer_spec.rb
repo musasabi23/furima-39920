@@ -7,7 +7,7 @@ RSpec.describe PurchaseCustomer, type: :model do
 
   describe '商品購入' do
     context '商品購入できるとき' do
-      it '必要な情報を適切に入力して「購入」ボタンを押すと購入できる' do
+      it '必要な情報を適切に入力してtokenがあれば「購入」ボタンを押すと購入できる' do
         expect(@purchase_customer).to be_valid
       end
 
@@ -138,6 +138,12 @@ RSpec.describe PurchaseCustomer, type: :model do
         @purchase_customer.item_id = ''
         @purchase_customer.valid?
         expect(@purchase_customer.errors.full_messages).to include("Item can't be blank")
+      end
+
+      it 'tokenが空では購入できない' do
+        @purchase_customer.token = ''
+        @purchase_customer.valid?
+        expect(@purchase_customer.errors.full_messages).to include("Token can't be blank")
       end
     end
   end
