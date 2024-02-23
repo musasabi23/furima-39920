@@ -51,37 +51,37 @@ RSpec.describe PurchaseCustomer, type: :model do
       it 'phone_numberが半角数字のみでなければ購入できない' do
         @purchase_customer.phone_number = '03-111-2222'
         @purchase_customer.valid?
-        expect(@purchase_customer.errors.full_messages).to include("Phone number is invalid")
+        expect(@purchase_customer.errors.full_messages).to include('Phone number is invalid')
 
         @purchase_customer.phone_number = '１２３４５６７８９９９'
         @purchase_customer.valid?
-        expect(@purchase_customer.errors.full_messages).to include("Phone number is invalid")
+        expect(@purchase_customer.errors.full_messages).to include('Phone number is invalid')
 
         @purchase_customer.phone_number = 'asdfghjklpo'
         @purchase_customer.valid?
-        expect(@purchase_customer.errors.full_messages).to include("Phone number is invalid")
+        expect(@purchase_customer.errors.full_messages).to include('Phone number is invalid')
 
         @purchase_customer.phone_number = 'あああああああああああ'
         @purchase_customer.valid?
-        expect(@purchase_customer.errors.full_messages).to include("Phone number is invalid")
+        expect(@purchase_customer.errors.full_messages).to include('Phone number is invalid')
 
         @purchase_customer.phone_number = 'アアアアアアアアアアア'
         @purchase_customer.valid?
-        expect(@purchase_customer.errors.full_messages).to include("Phone number is invalid")
+        expect(@purchase_customer.errors.full_messages).to include('Phone number is invalid')
 
         @purchase_customer.phone_number = '亜亜亜亜亜亜亜亜亜亜亜'
         @purchase_customer.valid?
-        expect(@purchase_customer.errors.full_messages).to include("Phone number is invalid")
+        expect(@purchase_customer.errors.full_messages).to include('Phone number is invalid')
       end
 
       it 'phone_numberが10桁以上11桁以内でなければ購入できない' do
         @purchase_customer.phone_number = '123456789'
         @purchase_customer.valid?
-        expect(@purchase_customer.errors.full_messages).to include("Phone number is invalid")
+        expect(@purchase_customer.errors.full_messages).to include('Phone number is invalid')
 
         @purchase_customer.phone_number = '123456789012'
         @purchase_customer.valid?
-        expect(@purchase_customer.errors.full_messages).to include("Phone number is invalid")
+        expect(@purchase_customer.errors.full_messages).to include('Phone number is invalid')
       end
 
       it 'user_idがが空では購入できない' do
@@ -98,5 +98,3 @@ RSpec.describe PurchaseCustomer, type: :model do
     end
   end
 end
-
-      
