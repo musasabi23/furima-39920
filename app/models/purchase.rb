@@ -4,5 +4,4 @@ class Purchase < ApplicationRecord
   has_one :customer
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
-  
 end
