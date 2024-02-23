@@ -27,45 +27,45 @@ RSpec.describe PurchaseCustomer, type: :model do
       it 'post_codeが3桁-4桁でなければ購入できない' do
         @purchase_customer.post_code = '12-34567'
         @purchase_customer.valid?
-        expect(@purchase_customer.errors.full_messages).to include("Post code is invalid")
+        expect(@purchase_customer.errors.full_messages).to include('Post code is invalid')
 
         @purchase_customer.post_code = '1234-567'
         @purchase_customer.valid?
-        expect(@purchase_customer.errors.full_messages).to include("Post code is invalid")
+        expect(@purchase_customer.errors.full_messages).to include('Post code is invalid')
 
         @purchase_customer.post_code = '124-567'
         @purchase_customer.valid?
-        expect(@purchase_customer.errors.full_messages).to include("Post code is invalid")
+        expect(@purchase_customer.errors.full_messages).to include('Post code is invalid')
 
         @purchase_customer.post_code = '1234-5678'
         @purchase_customer.valid?
-        expect(@purchase_customer.errors.full_messages).to include("Post code is invalid")
+        expect(@purchase_customer.errors.full_messages).to include('Post code is invalid')
       end
 
       it 'post_codeが半角数字でなければ購入できない' do
         @purchase_customer.post_code = '１２３-４５６７'
         @purchase_customer.valid?
-        expect(@purchase_customer.errors.full_messages).to include("Post code is invalid")
+        expect(@purchase_customer.errors.full_messages).to include('Post code is invalid')
 
         @purchase_customer.post_code = 'asd-fghj'
         @purchase_customer.valid?
-        expect(@purchase_customer.errors.full_messages).to include("Post code is invalid")
+        expect(@purchase_customer.errors.full_messages).to include('Post code is invalid')
 
         @purchase_customer.post_code = 'あいう-えおかき'
         @purchase_customer.valid?
-        expect(@purchase_customer.errors.full_messages).to include("Post code is invalid")
+        expect(@purchase_customer.errors.full_messages).to include('Post code is invalid')
 
         @purchase_customer.post_code = 'アイウ-エオカキ'
         @purchase_customer.valid?
-        expect(@purchase_customer.errors.full_messages).to include("Post code is invalid")
+        expect(@purchase_customer.errors.full_messages).to include('Post code is invalid')
 
         @purchase_customer.post_code = 'ｱｲｳ-ｴｵｶｷ'
         @purchase_customer.valid?
-        expect(@purchase_customer.errors.full_messages).to include("Post code is invalid")
+        expect(@purchase_customer.errors.full_messages).to include('Post code is invalid')
 
         @purchase_customer.post_code = '亜亜亜-亜亜亜亜'
         @purchase_customer.valid?
-        expect(@purchase_customer.errors.full_messages).to include("Post code is invalid")
+        expect(@purchase_customer.errors.full_messages).to include('Post code is invalid')
       end
 
       it 'prefecture_idを選択しなければ購入できない' do
