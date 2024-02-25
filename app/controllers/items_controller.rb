@@ -42,11 +42,13 @@ class ItemsController < ApplicationController
 
   def move_to_index
     return if current_user.id == @item.user.id
+
     redirect_to action: :index
   end
 
   def sould_out
     return unless @item && Purchase.exists?(item_id: @item.id)
+
     redirect_to root_path
   end
 
