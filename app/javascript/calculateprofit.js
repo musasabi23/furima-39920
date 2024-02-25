@@ -1,6 +1,5 @@
-//function calculateprofit (){
+function post (){
   document.addEventListener('turbo:load', function() {
-
     const price = document.getElementById("item-price")
     if (price) {
 
@@ -22,4 +21,5 @@
       });
     };
   });
-//}
+};
+window.addEventListener('turbo:load', post);
