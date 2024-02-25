@@ -24,13 +24,11 @@ class PurchasesController < ApplicationController
   def move_to_index
     @item = Item.find_by(id: params[:item_id])
     return unless @item && current_user.id == @item.user.id
-
     redirect_to root_path
   end
 
   def sould_out
     return unless @item && Purchase.exists?(item_id: @item.id)
-
     redirect_to root_path
   end
 

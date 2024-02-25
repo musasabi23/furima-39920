@@ -1,3 +1,4 @@
+//function calculateprofit (){
   document.addEventListener('turbo:load', function() {
 
     const price = document.getElementById("item-price")
@@ -21,3 +22,4 @@
       });
     };
   });
+//}
