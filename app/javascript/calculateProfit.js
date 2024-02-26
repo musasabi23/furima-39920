@@ -8,8 +8,8 @@ function calculateProfit (){
       const handlingFee = inputPrice * 0.1;
       const handlingfee = Math.floor(handlingFee);
 
-      const profitCalculation = inputPrice * 0.9;
-      const proFit = Math.floor(profitCalculation);
+      const profitCalculation = inputPrice - handlingfee;
+      const proFit = profitCalculation;
 
 
       const cost = document.getElementById("add-tax-price");
