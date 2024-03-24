@@ -1,5 +1,6 @@
 function calculateProfit (){
   const price = document.getElementById("item-price")
+  if (!price) return null;
   if (price) {
 
     price.addEventListener("input", () => {
